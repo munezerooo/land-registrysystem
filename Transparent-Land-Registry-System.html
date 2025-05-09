@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Land Registry System</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0066cc',secondary:'#4d9aff'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+color: #1f2937;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=modern%20blockchain%20technology%20visualization%20with%20connected%20blocks%20in%20blue%20gradient%2C%20digital%20land%20registry%20concept%2C%20abstract%20secure%20data%20network%2C%20minimalist%20design%20with%20soft%20blue%20tones%2C%20technology%20background%20that%20shows%20transparency%20and%20security%2C%20perfect%20for%20government%20website&width=1600&height=800&seq=123&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.hero-content {
+background: linear-gradient(90deg, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0) 100%);
+}
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: #0066cc;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #0066cc;
+border-color: #0066cc;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-radio {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 50%;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-radio:checked {
+border-color: #0066cc;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+left: 3px;
+top: 3px;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #0066cc;
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #0066cc;
+}
+input:checked + .slider:before {
+transform: translateX(24px);
+}
+.range-slider {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #e5e7eb;
+outline: none;
+}
+.range-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #0066cc;
+cursor: pointer;
+}
+.range-slider::-moz-range-thumb {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #0066cc;
+cursor: pointer;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+<i class="ri-secure-payment-line text-white ri-lg"></i>
+</div>
+<h1 class="text-xl font-['Pacifico'] text-primary">logo</h1>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-primary font-medium">Home</a>
+<a href="#" class="text-gray-600 hover:text-primary transition">Register</a>
+<a href="#" class="text-gray-600 hover:text-primary transition">Transfer</a>
+<a href="#" class="text-gray-600 hover:text-primary transition">Verify</a>
+<a href="#" class="text-gray-600 hover:text-primary transition">About</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+<span>Connected</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 !rounded-button flex items-center whitespace-nowrap">
+<i class="ri-wallet-3-line mr-2"></i>
+Connect Wallet
+</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section relative">
+<div class="hero-content w-full min-h-[600px] flex items-center">
+<div class="container mx-auto px-4 py-16">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-bold mb-6">Secure Land Registry on Blockchain</h1>
+<p class="text-lg mb-8">A transparent, tamper-proof, and decentralized system for land ownership records. Powered by blockchain technology to ensure data integrity and public trust.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-lg hover:shadow-xl transition whitespace-nowrap">
+Register Property
+</button>
+<button class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap">
+Verify Ownership
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Why Choose Blockchain Land Registry</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Our system leverages blockchain technology to create an immutable record of land ownership that is transparent, secure, and accessible to all stakeholders.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-shield-check-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Tamper-Proof Records</h3>
+<p class="text-gray-600">Once recorded on the blockchain, land records cannot be altered or deleted, ensuring permanent and reliable ownership history.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-eye-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Complete Transparency</h3>
+<p class="text-gray-600">All transactions are publicly visible, allowing anyone to verify ownership claims and review the complete history of any property.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-time-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Efficient Transfers</h3>
+<p class="text-gray-600">Property transfers are streamlined through smart contracts, reducing processing time from weeks to minutes with automated verification.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+<i class="ri-government-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3">Reduced Fraud</h3>
+<p class="text-gray-600">The decentralized nature of blockchain eliminates single points of failure and significantly reduces opportunities for fraud or corruption.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">How It Works</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Our blockchain-based land registry system simplifies property management while maintaining the highest levels of security and transparency.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="md:w-1/2">
+<img src="https://readdy.ai/api/search-image?query=blockchain%20land%20registry%20process%20flow%20diagram%2C%20showing%20steps%20from%20registration%20to%20verification%2C%20modern%20minimalist%20design%20with%20blue%20gradient%2C%20professional%20infographic%20style%2C%20clean%20lines%20and%20icons%20representing%20different%20steps%20in%20the%20process&width=600&height=400&seq=124&orientation=landscape" alt="How blockchain land registry works" class="rounded-lg shadow-lg w-full object-cover">
+</div>
+<div class="md:w-1/2">
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Property Registration</h3>
+<p class="text-gray-600">Property owners submit their details along with property information. Documents are securely stored using IPFS (InterPlanetary File System).</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Government Verification</h3>
+<p class="text-gray-600">Government officials verify the submitted information against existing records and approve valid registrations.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">3</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Blockchain Recording</h3>
+<p class="text-gray-600">Once verified, the property details are recorded on the blockchain, creating a permanent and immutable record of ownership.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">4</div>
+<div>
+<h3 class="text-xl font-semibold mb-2">Ownership Transfers</h3>
+<p class="text-gray-600">Property transfers are executed through smart contracts, automatically updating the blockchain record after both parties confirm.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Registration Preview -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Land Registration Process</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Our streamlined registration process makes it easy to securely record your property on the blockchain.</p>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-4xl mx-auto">
+<div class="flex mb-8">
+<div class="flex-1 text-center">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white mx-auto">1</div>
+<p class="mt-2 font-medium text-primary">Owner Info</p>
+</div>
+<div class="flex-1 text-center">
+<div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 mx-auto">2</div>
+<p class="mt-2 font-medium text-gray-500">Property Details</p>
+</div>
+<div class="flex-1 text-center">
+<div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 mx-auto">3</div>
+<p class="mt-2 font-medium text-gray-500">Documents</p>
+</div>
+<div class="flex-1 text-center">
+<div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 mx-auto">4</div>
+<p class="mt-2 font-medium text-gray-500">Confirmation</p>
+</div>
+</div>
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-gray-700 mb-2">Full Name</label>
+<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your full name">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">Wallet Address</label>
+<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="0x..." value="0x71C7656EC7ab88b098defB751B7401B5f6d8976F" readonly>
+</div>
+<div>
+<label class="block text-gray-700 mb-2">Email Address</label>
+<input type="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your email">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">Phone Number</label>
+<input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your phone number">
+</div>
+<div class="md:col-span-2">
+<label class="block text-gray-700 mb-2">Residential Address</label>
+<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Enter your current address">
+</div>
+<div class="md:col-span-2">
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox mr-2">
+<span class="text-gray-700">I confirm that all information provided is accurate and I am the rightful owner of this wallet address.</span>
+</label>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button type="button" class="bg-primary text-white px-6 py-2 !rounded-button whitespace-nowrap">
+Next Step
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Verification Preview -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Verify Property Ownership</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Check the ownership status and history of any registered property using its unique identifier or location details.</p>
+</div>
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="p-6 md:p-8">
+<div class="flex flex-col md:flex-row gap-4 mb-8">
+<div class="flex-1">
+<div class="relative">
+<input type="text" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-primary" placeholder="Enter Property ID or Hash">
+<div class="absolute left-3 top-3 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+</div>
+<button class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap">
+Verify Property
+</button>
+</div>
+<div class="flex gap-4 mb-6">
+<label class="flex items-center">
+<input type="radio" name="search-type" class="custom-radio mr-2" checked>
+<span>Search by ID</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="search-type" class="custom-radio mr-2">
+<span>Search by Location</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="search-type" class="custom-radio mr-2">
+<span>Search by Owner</span>
+</label>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg mb-6">
+<h3 class="font-medium text-gray-700 mb-2">Recent Searches</h3>
+<div class="flex flex-wrap gap-2">
+<span class="bg-white px-3 py-1 rounded border border-gray-200 text-sm">LR-2025-0042</span>
+<span class="bg-white px-3 py-1 rounded border border-gray-200 text-sm">0x8f7d...e4a2</span>
+<span class="bg-white px-3 py-1 rounded border border-gray-200 text-sm">LR-2025-0039</span>
+</div>
+</div>
+<div class="border-t border-gray-200 pt-6">
+<h3 class="text-xl font-semibold mb-4">Sample Verification Result</h3>
+<div class="bg-blue-50 border-l-4 border-primary p-4 mb-6">
+<div class="flex items-center text-primary mb-2">
+<i class="ri-checkbox-circle-line mr-2"></i>
+<span class="font-medium">Verified on Blockchain</span>
+</div>
+<p class="text-gray-600 text-sm">This property record has been verified and is securely stored on the blockchain.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<h4 class="font-medium text-gray-700 mb-2">Property Details</h4>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-gray-600">Property ID:</span>
+<span class="font-medium">LR-2025-0042</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Location:</span>
+<span class="font-medium">KG 574 St, Kacyiru, Kigali</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Size:</span>
+<span class="font-medium">2.5 acres</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Registration Date:</span>
+<span class="font-medium">March 15, 2025</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-medium text-gray-700 mb-2">Current Owner</h4>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-gray-600">Name:</span>
+<span class="font-medium">Alexandra Reynolds</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Wallet Address:</span>
+<span class="font-medium truncate">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Ownership Since:</span>
+<span class="font-medium">March 15, 2025</span>
+</div>
+</div>
+</div>
+</div>
+<h4 class="font-medium text-gray-700 mb-3">Ownership History</h4>
+<div class="space-y-4 mb-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-primary">
+<i class="ri-user-line"></i>
+</div>
+<div>
+<p class="font-medium">Alexandra Reynolds</p>
+<p class="text-sm text-gray-600">Current Owner (since March 15, 2025)</p>
+<p class="text-xs text-gray-500 mt-1">Transaction Hash: 0x8f7d4a6e2c3b1d0f9e8d7c6b5a4e3d2c1b0f9e8d7</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+<i class="ri-user-line"></i>
+</div>
+<div>
+<p class="font-medium">Jonathan Miller</p>
+<p class="text-sm text-gray-600">Previous Owner (Jan 10, 2023 - Mar 15, 2025)</p>
+<p class="text-xs text-gray-500 mt-1">Transaction Hash: 0x7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+<i class="ri-government-line"></i>
+</div>
+<div>
+<p class="font-medium">Government Registry</p>
+<p class="text-sm text-gray-600">Initial Registration (Jan 10, 2023)</p>
+<p class="text-xs text-gray-500 mt-1">Transaction Hash: 0x1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t</p>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-button mr-3 whitespace-nowrap">
+<i class="ri-download-line mr-1"></i> Download Report
+</button>
+<button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">
+<i class="ri-external-link-line mr-1"></i> View on Blockchain
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">System Statistics</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Our blockchain-based land registry system is growing rapidly, providing secure property records across the country.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">00</div>
+<p class="text-gray-600">Properties Registered</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">00</div>
+<p class="text-gray-600">Ownership Transfers</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">00</div>
+<p class="text-gray-600">Blockchain Verifications</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">100%</div>
+<p class="text-gray-600">System Uptime</p>
+</div>
+</div>
+<div class="mt-12 bg-white p-6 rounded-lg shadow-lg">
+<h3 class="text-xl font-semibold mb-4">Monthly Registration Activity</h3>
+<div id="registrationChart" style="width: 100%; height: 400px;"></div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-primary text-white">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold mb-6">Ready to Secure Your Property on Blockchain?</h2>
+<p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of property owners who have already registered their land on our secure blockchain system.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-100 transition whitespace-nowrap">
+Register Now
+</button>
+<button class="bg-transparent text-white border border-white px-6 py-3 !rounded-button font-medium hover:bg-white/10 transition whitespace-nowrap">
+Learn More
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-12 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div>
+<div class="flex items-center space-x-2 mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
+<i class="ri-secure-payment-line text-primary ri-lg"></i>
+</div>
+<h1 class="text-xl font-['Pacifico'] text-white">logo</h1>
+</div>
+<p class="text-gray-400 mb-4">A secure, transparent blockchain-based land registry system that revolutionizes property management and ownership verification.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-github-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Register Property</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Transfer Ownership</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Verify Property</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Admin Dashboard</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">API Reference</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Smart Contract</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Blockchain Explorer</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+<ul class="space-y-2">
+<li class="flex items-center">
+<i class="ri-map-pin-line mr-2"></i>
+<span class="text-gray-400">KN 5 Rd, Kigali Innovation City, Kigali, Rwanda</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-2"></i>
+<a href="mailto:flugencemunezero79@gmail.com" class="text-gray-400 hover:text-white transition">flugencemunezero79@gmail.com</a>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-2"></i>
+<a href="tel:+250780776093" class="text-gray-400 hover:text-white transition">+250 780 776 093</a>
+</li>
+</ul>
+<div class="mt-4">
+<h4 class="text-sm font-medium mb-2">Subscribe to our newsletter</h4>
+<div class="flex">
+<input type="email" class="flex-1 px-4 py-2 bg-gray-800 border-none rounded-l text-white text-sm" placeholder="Your email">
+<button class="bg-primary px-4 py-2 rounded-r !rounded-button whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Secure Land Registry. All rights reserved.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Initialize chart
+const chartDom = document.getElementById('registrationChart');
+if (chartDom) {
+const myChart = echarts.init(chartDom);
+const option = {
+animation: false,
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+}
+},
+legend: {
+data: ['Property Registrations', 'Ownership Transfers'],
+textStyle: {
+color: '#1f2937'
+}
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+axisLine: {
+lineStyle: {
+color: '#d1d5db'
+}
+},
+axisLabel: {
+color: '#1f2937'
+}
+},
+yAxis: {
+type: 'value',
+axisLine: {
+lineStyle: {
+color: '#d1d5db'
+}
+},
+axisLabel: {
+color: '#1f2937'
+},
+splitLine: {
+lineStyle: {
+color: '#e5e7eb'
+}
+}
+},
+series: [
+{
+name: 'Property Registrations',
+type: 'line',
+smooth: true,
+lineStyle: {
+width: 3,
+color: 'rgba(87, 181, 231, 1)'
+},
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{
+offset: 0,
+color: 'rgba(87, 181, 231, 0.3)'
+},
+{
+offset: 1,
+color: 'rgba(87, 181, 231, 0.1)'
+}
+])
+},
+emphasis: {
+focus: 'series'
+},
+data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+},
+{
+name: 'Ownership Transfers',
+type: 'line',
+smooth: true,
+lineStyle: {
+width: 3,
+color: 'rgba(141, 211, 199, 1)'
+},
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{
+offset: 0,
+color: 'rgba(141, 211, 199, 0.3)'
+},
+{
+offset: 1,
+color: 'rgba(141, 211, 199, 0.1)'
+}
+])
+},
+emphasis: {
+focus: 'series'
+},
+data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+}
+]
+};
+myChart.setOption(option);
+window.addEventListener('resize', function() {
+myChart.resize();
+});
+}
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuButton = document.querySelector('.ri-menu-line');
+if (menuButton) {
+menuButton.addEventListener('click', function() {
+// Mobile menu functionality would go here
+});
+}
+// Form validation
+const nextButton = document.querySelector('button[type="button"]');
+if (nextButton) {
+nextButton.addEventListener('click', function() {
+// Form validation would go here
+});
+}
+// Custom checkbox and radio functionality
+const customCheckboxes = document.querySelectorAll('.custom-checkbox');
+if (customCheckboxes.length > 0) {
+customCheckboxes.forEach(checkbox => {
+checkbox.addEventListener('click', function() {
+// Toggle checked state
+});
+});
+}
+const customRadios = document.querySelectorAll('.custom-radio');
+if (customRadios.length > 0) {
+customRadios.forEach(radio => {
+radio.addEventListener('click', function() {
+// Handle radio selection
+});
+});
+}
+});
+</script>
+</body>
+</html>
